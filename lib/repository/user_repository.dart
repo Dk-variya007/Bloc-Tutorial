@@ -17,6 +17,6 @@ class UserRepository {
     } on SocketException {
       throw Exception("error is occurred");
     }
-    throw Exception("error is occurred");
+    throw Exception("error occurred");
   }
 }
