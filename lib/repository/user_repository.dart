@@ -15,8 +15,8 @@ class UserRepository {
         //return data.map((e) => UserModel(name: e['name'])).toList();
       }
     } on SocketException {
-      throw Exception("error");
+      throw Exception("error is occurred");
     }
-    throw Exception("error");
+    throw Exception("error is occurred");
   }
 }
