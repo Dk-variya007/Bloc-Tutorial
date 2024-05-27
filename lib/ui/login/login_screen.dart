@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
         title: const Text("Login Screen"),
       ),
       body: BlocProvider(
-        create: (context) => LoginBloc(),
+        create: (context) => _loginBloc,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
