@@ -3,7 +3,7 @@ import 'package:bloc_state_management/bloc/switch_example/switch_event.dart';
 import 'package:bloc_state_management/bloc/switch_example/switch_state.dart';
 
 class SwitchBloc extends Bloc<SwitchEvent, SwitchState> {
-  SwitchBloc() : super(SwitchState()) {
+  SwitchBloc() : super(const SwitchState()) {
     on<EnableOrDisableNotification>(_enableOrDisableNotification);
     on<SliderEvent>(_slider);
   }

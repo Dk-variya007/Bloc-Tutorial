@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_state_management/bloc/user_api_bloc/user_api_event.dart';
-import 'package:bloc_state_management/bloc/user_api_bloc/user_api_state.dart';
+import 'package:bloc_state_management/bloc/api/user_api_bloc/user_api_event.dart';
+import 'package:bloc_state_management/bloc/api/user_api_bloc/user_api_state.dart';
 import 'package:bloc_state_management/repository/user_repository.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {

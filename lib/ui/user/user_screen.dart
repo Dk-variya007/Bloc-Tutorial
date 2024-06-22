@@ -1,6 +1,6 @@
-import 'package:bloc_state_management/bloc/user_api_bloc/user_api_bloc.dart';
-import 'package:bloc_state_management/bloc/user_api_bloc/user_api_event.dart';
-import 'package:bloc_state_management/bloc/user_api_bloc/user_api_state.dart';
+import 'package:bloc_state_management/bloc/api/user_api_bloc/user_api_bloc.dart';
+import 'package:bloc_state_management/bloc/api/user_api_bloc/user_api_event.dart';
+import 'package:bloc_state_management/bloc/api/user_api_bloc/user_api_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

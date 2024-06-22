@@ -1,12 +1,7 @@
 import 'dart:io';
-
 import 'package:bloc_state_management/bloc/image_bloc/image_picker_bloc.dart';
 import 'package:bloc_state_management/bloc/image_bloc/image_picker_event.dart';
 import 'package:bloc_state_management/bloc/image_bloc/image_picker_state.dart';
-
-// import 'package:bloc_state_management/bloc/image_picker_bloc/image_picker_bloc.dart';
-// import 'package:bloc_state_management/bloc/image_picker_bloc/image_picker_event.dart';
-// import 'package:bloc_state_management/bloc/image_picker_bloc/image_picker_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

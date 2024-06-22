@@ -14,6 +14,7 @@ class SwitchScreen extends StatefulWidget {
 class _SwitchScreenState extends State<SwitchScreen> {
   @override
   Widget build(BuildContext context) {
+    print("build");
     return Scaffold(
       appBar: AppBar(
         title: const Text("Switch Example"),
@@ -27,13 +28,16 @@ class _SwitchScreenState extends State<SwitchScreen> {
             children: [
               const Text("Notification"),
               BlocBuilder<SwitchBloc, SwitchState>(
-                buildWhen: (previous, current) => previous.isSwitch != current.isSwitch,
+                buildWhen: (previous, current) =>
+                    previous.isSwitch != current.isSwitch,
                 builder: (context, state) {
                   print("noti");
                   return Switch(
                     value: state.isSwitch,
                     onChanged: (value) {
-                      context.read<SwitchBloc>().add(EnableOrDisableNotification());
+                      context
+                          .read<SwitchBloc>()
+                          .add(EnableOrDisableNotification());
                     },
                   );
                 },

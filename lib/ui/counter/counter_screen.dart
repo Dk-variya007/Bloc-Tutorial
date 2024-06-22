@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc_state_management/bloc/counter_bloc/counter_bloc.dart';
 import 'package:bloc_state_management/bloc/counter_bloc/counter_event.dart';
 import 'package:bloc_state_management/bloc/counter_bloc/counter_state.dart';
@@ -12,6 +14,8 @@ class CounterScreen extends StatefulWidget {
 }
 
 class _CounterScreenState extends State<CounterScreen> {
+  CounterBloc counterBloc = CounterBloc();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +27,15 @@ class _CounterScreenState extends State<CounterScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           BlocBuilder<CounterBloc, CounterState>(
-            builder: (context, state) => Text(
-              state.counter.toString(),
-              style: const TextStyle(fontSize: 60),
-            ),
+            buildWhen: (previous, current) => current.counter != previous.counter,
+            bloc: counterBloc,
+            builder: (context, state) {
+              log("Builder called");
+              return Text(
+                state.counter.toString(),
+                style: const TextStyle(fontSize: 60),
+              );
+            },
           ),
           const SizedBox(
             height: 20,
@@ -36,13 +45,15 @@ class _CounterScreenState extends State<CounterScreen> {
             children: [
               ElevatedButton(
                   onPressed: () {
-                    context.read<CounterBloc>().add(IncrementCounter());
+                    //context.read<CounterBloc>().add(IncrementCounter());
+                    counterBloc.add(IncrementCounter());
                   },
                   child: const Text("Increment")),
               const SizedBox(width: 20),
               ElevatedButton(
                   onPressed: () {
-                    context.read<CounterBloc>().add(DecrementCounter());
+                  //  context.read<CounterBloc>().add(DecrementCounter());
+                    counterBloc.add(DecrementCounter());
                   },
                   child: const Text("Decrement")),
             ],

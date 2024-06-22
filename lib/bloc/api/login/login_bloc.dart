@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:bloc_state_management/bloc/login/login_event.dart';
-import 'package:bloc_state_management/bloc/login/login_state.dart';
+import 'package:bloc_state_management/bloc/api/login/login_event.dart';
+import 'package:bloc_state_management/bloc/api/login/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 

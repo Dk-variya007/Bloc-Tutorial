@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_state_management/bloc/image_bloc/image_picker_event.dart';
 import 'package:bloc_state_management/bloc/image_bloc/image_picker_state.dart';
 import 'package:bloc_state_management/util/image_picker_utils.dart';

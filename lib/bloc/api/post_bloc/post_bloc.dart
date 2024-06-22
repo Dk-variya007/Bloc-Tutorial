@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_state_management/bloc/post_bloc/post_event.dart';
-import 'package:bloc_state_management/bloc/post_bloc/post_state.dart';
+import 'package:bloc_state_management/bloc/api/post_bloc/post_event.dart';
+import 'package:bloc_state_management/bloc/api/post_bloc/post_state.dart';
 import 'package:bloc_state_management/repository/post_repository.dart';
 
 class PostBloc extends Bloc<PostEvent, PostState> {

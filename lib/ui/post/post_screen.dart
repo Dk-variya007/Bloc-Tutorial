@@ -1,6 +1,6 @@
-import 'package:bloc_state_management/bloc/post_bloc/post_bloc.dart';
-import 'package:bloc_state_management/bloc/post_bloc/post_event.dart';
-import 'package:bloc_state_management/bloc/post_bloc/post_state.dart';
+import 'package:bloc_state_management/bloc/api/post_bloc/post_bloc.dart';
+import 'package:bloc_state_management/bloc/api/post_bloc/post_event.dart';
+import 'package:bloc_state_management/bloc/api/post_bloc/post_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
