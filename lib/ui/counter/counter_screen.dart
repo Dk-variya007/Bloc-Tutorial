@@ -14,57 +14,79 @@ class CounterScreen extends StatefulWidget {
 }
 
 class _CounterScreenState extends State<CounterScreen> {
-  CounterBloc counterBloc = CounterBloc();
+  late CounterBloc counterBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    counterBloc = CounterBloc();
+  }
+
+  @override
+  void dispose() {
+    counterBloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Counter Example"),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          BlocBuilder<CounterBloc, CounterState>(
-            buildWhen: (previous, current) => current.counter != previous.counter,
-            bloc: counterBloc,
-            builder: (context, state) {
-              log("Builder called");
-              return Text(
-                state.counter.toString(),
-                style: const TextStyle(fontSize: 60),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
+    return BlocProvider(
+      create: (context) => counterBloc,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Counter Example"),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            BlocListener<CounterBloc, CounterState>(
+              listener: (context, state) {
+                final action = state.counter > 0 ? 'incremented' : 'decremented';
+                ScaffoldMessenger.of(context).clearSnackBars();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Counter $action to ${state.counter}')),
+                );
+              },
+              child: BlocBuilder<CounterBloc, CounterState>(
+                buildWhen: (previous, current) => current.counter != previous.counter,
+                builder: (context, state) {
+                  log("Builder called");
+                  return Text(
+                    state.counter.toString(),
+                    style: const TextStyle(fontSize: 60),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
                   onPressed: () {
-                    //context.read<CounterBloc>().add(IncrementCounter());
                     counterBloc.add(IncrementCounter());
                   },
-                  child: const Text("Increment")),
-              const SizedBox(width: 20),
-              ElevatedButton(
+                  child: const Text("Increment"),
+                ),
+                const SizedBox(width: 20),
+                ElevatedButton(
                   onPressed: () {
-                  //  context.read<CounterBloc>().add(DecrementCounter());
                     counterBloc.add(DecrementCounter());
                   },
-                  child: const Text("Decrement")),
-            ],
-          ),
-          const SizedBox(height: 20),
-          ElevatedButton(
+                  child: const Text("Decrement"),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
               onPressed: () {
-                context.read<CounterBloc>().add(ResetCounter());
+                counterBloc.add(ResetCounter());
               },
-              child: const Text("Reset")), // Add this button
-        ],
+              child: const Text("Reset"),
+            ),
+          ],
+        ),
       ),
     );
   }

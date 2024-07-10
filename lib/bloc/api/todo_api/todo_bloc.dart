@@ -11,8 +11,8 @@ class TodoAPiBloc extends Bloc<TodoEvent, TodoState> {
     on<TodoInitialEvent>(todoInitialEvent);
   }
 
-  Future<void> todoInitialEvent(TodoInitialEvent event,
-      Emitter<TodoState> emit) async {
+  Future<void> todoInitialEvent(
+      TodoInitialEvent event, Emitter<TodoState> emit) async {
     emit(TodoLoadingState());
     List<TodoModel> todo = await TodoRepository.fetchTodo();
     emit(TodoFetchState(todo: todo));

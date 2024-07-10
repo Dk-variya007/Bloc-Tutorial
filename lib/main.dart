@@ -10,6 +10,7 @@ import 'package:bloc_state_management/bloc/todo_bloc/todo_bloc.dart';
 import 'package:bloc_state_management/bloc/api/user_api_bloc/user_api_bloc.dart';
 import 'package:bloc_state_management/ui/counter/counter_screen.dart';
 import 'package:bloc_state_management/ui/form_valiadtion/signin_screen.dart';
+import 'package:bloc_state_management/ui/grocery/home/home.dart';
 import 'package:bloc_state_management/ui/internet/internet_screen.dart';
 import 'package:bloc_state_management/ui/switch_example/switch_example_screen.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const InternetScreen(),
+        home: const GroceryHome(),
       ),
     );
   }

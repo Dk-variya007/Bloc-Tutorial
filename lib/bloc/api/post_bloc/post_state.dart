@@ -24,3 +24,4 @@ class PostState extends Equatable {
   @override
   List<Object?> get props => [message,postList,postStatus];
 }
+

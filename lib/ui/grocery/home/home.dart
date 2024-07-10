@@ -6,14 +6,14 @@ import 'package:bloc_state_management/ui/grocery/wishlist/wish.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class GroceryHome extends StatefulWidget {
+  const GroceryHome({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<GroceryHome> createState() => _GroceryHomeState();
 }
 
-class _HomeState extends State<Home> {
+class _GroceryHomeState extends State<GroceryHome> {
   HomeBloc homeBloc = HomeBloc();
 
   @override
